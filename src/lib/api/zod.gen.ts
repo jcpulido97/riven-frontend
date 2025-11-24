@@ -477,6 +477,35 @@ export const zTorrentioConfig = z.object({
 export type TorrentioConfigZodType = z.infer<typeof zTorrentioConfig>;
 
 /**
+ * PeerflixConfig
+ */
+export const zPeerflixConfig = z.object({
+    enabled: z.optional(z.boolean().register(z.globalRegistry, {
+        description: 'Enable Peerflix scraper'
+    })).default(false),
+    filter: z.optional(z.string().register(z.globalRegistry, {
+        description: 'Peerflix filter parameters'
+    })).default('sort=qualitysize%7Cqualityfilter=480p,scr,cam'),
+    url: z.optional(z.string().register(z.globalRegistry, {
+        description: 'Peerflix URL'
+    })).default('http://peerflix.mov'),
+    timeout: z.optional(z.int().gte(1).register(z.globalRegistry, {
+        description: 'Request timeout in seconds'
+    })).default(30),
+    retries: z.optional(z.int().gte(0).register(z.globalRegistry, {
+        description: 'Number of retries for failed requests'
+    })).default(1),
+    ratelimit: z.optional(z.boolean().register(z.globalRegistry, {
+        description: 'Enable rate limiting'
+    })).default(true),
+    proxy_url: z.optional(z.string().register(z.globalRegistry, {
+        description: 'Proxy URL for Peerflix requests'
+    })).default('')
+});
+
+export type PeerflixConfigZodType = z.infer<typeof zPeerflixConfig>;
+
+/**
  * JackettConfig
  */
 export const zJackettConfig = z.object({

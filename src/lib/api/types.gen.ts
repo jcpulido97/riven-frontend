@@ -2083,6 +2083,47 @@ export type TorrentioConfig = {
 };
 
 /**
+ * PeerflixConfig
+ */
+export type PeerflixConfig = {
+    /**
+     * Enabled
+     * Enable Peerflix scraper
+     */
+    enabled?: boolean;
+    /**
+     * Filter
+     * Peerflix filter parameters
+     */
+    filter?: string;
+    /**
+     * Url
+     * Peerflix URL
+     */
+    url?: string;
+    /**
+     * Timeout
+     * Request timeout in seconds
+     */
+    timeout?: number;
+    /**
+     * Retries
+     * Number of retries for failed requests
+     */
+    retries?: number;
+    /**
+     * Ratelimit
+     * Enable rate limiting
+     */
+    ratelimit?: boolean;
+    /**
+     * Proxy Url
+     * Proxy URL for Peerflix requests
+     */
+    proxy_url?: string;
+};
+
+/**
  * TraktModel
  */
 export type TraktModel = {
